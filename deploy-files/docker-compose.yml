@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  bettermode-react-app:
+    container_name: bettermode-react-app
+    build:
+      context: ../
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3001:3000"
+    environment:
+      - INSTANCE_TYPE=main-server
+      - PROJECT_NAME=bettermode
+      - REACT_APP_PORT=3001
+      - JWT_PRIVATE_KEY=V+AopYCPi68/oZDFLKeZVeRDOHpes/eHrHe1FjOcb45MN/cGL5eEB/Qpt7WbM6EYq3/u0rfuGtfV8qD6ngMGVx1i6Cf2NaD1NgxcGJx8xY1BTxge6ecnIEtZB2Fqj6xH07DDW8joGCxBT9Vtaxutq8j7tGEaLF22GTbyFU2x53h4bXh4IptT0nv+ZVNRC/5joeYTRHurQthtuloBpNi7yL0OrPLSVNAwL4831Zbxh0lOuRVXk40NidbKACwWlCsFSjadaF2KEjv4bS1JU02uwcnWTKOhMUsvap43se15sSSeZSxwmmtWy7OqJz+eBRrqAnf0QzcrwY3O/TIsF70J5A==
+    networks:
+      - bettermode_network
+
+
+networks:
+  bettermode_network:
+    driver: bridge
